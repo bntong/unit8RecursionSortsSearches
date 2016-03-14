@@ -4,15 +4,16 @@ public class ListMethods
 {
     public static ArrayList<Integer> makeList(int n)
     {
-        ArrayList<Integer> temp =  new ArrayList<Integer>(0);
+        ArrayList<Integer> temp =  null;
         if (n <= 0)  // The smallest list we can make
         {
-            temp.add(0);
+            temp = new ArrayList<Integer>();
         }
         else        // All other size lists are created here
         {            
-            temp.addAll(makeList(n-1));
-            temp.add(n);            
+            temp = makeList(n-1);
+            temp.add(n);
+            return temp;
         }
         return temp;
     }
@@ -26,12 +27,63 @@ public class ListMethods
         }
         else
         {
-            list.remove(0);
-            list.add(0);
+            Integer tempInt = list.remove(0);
+            list = ListMethods.reverseList(list);
+            list.add(tempInt);
         }
         return list;
     }
 
+    public static ArrayList<Integer> even(ArrayList<Integer> tList)
+    {
+        ArrayList<Integer> list = ListMethods.deepClone(tList);
+        if(list.size() <= 1)
+        {
+            return list;
+        }
+        else
+        {
+            Integer tempInt = list.remove(0);
+            list.remove(0);
+            list = ListMethods.even(list);
+            list.add(0, tempInt);
+        }
+        return list;
+    }
+    
+    public static ArrayList<Integer> merge(ArrayList<Integer> tList1 , ArrayList<Integer> tList2)
+    {
+        ArrayList<Integer> list1 = ListMethods.deepClone(tList1);
+        ArrayList<Integer> list2 = ListMethods.deepClone(tList2);
+        ArrayList<Integer> tempList;
+        if(list1.size() == 0)
+        {
+            return list2;
+        }
+        else if (list2.size() == 0)
+        {
+            return list1;
+        }
+        else
+        {
+            Integer lastElement1 = list1.get(list1.size() - 1);
+            Integer lastElement2 = list2.get(list2.size() - 1);
+            if(lastElement1.compareTo(lastElement2) < 0)
+            {
+                lastElement2 = list2.remove(list2.size() - 1);
+                tempList = ListMethods.merge(list1 , list2);
+                tempList.add(lastElement2);
+            }
+            else
+            {
+                lastElement1 = list1.remove(list1.size() - 1);
+                tempList = ListMethods.merge(list1 , list2);
+                tempList.add(lastElement1);
+            }
+        }
+        return tempList;
+    }
+    
     public static ArrayList<Integer> deepClone(ArrayList<Integer> tList)
     {
         ArrayList<Integer> list = new ArrayList<Integer>(); 
