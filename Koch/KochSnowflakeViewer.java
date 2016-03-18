@@ -11,10 +11,10 @@ import javax.swing.*;
 
 public class KochSnowflakeViewer implements ActionListener
 {
-    private final int WIDTH = 400;
-    private final int HEIGHT = 500;
+    private final int WIDTH = 1920;
+    private final int HEIGHT = 1080;
 
-    private final int MIN = 1, MAX = 9;
+    private final int MIN = 1, MAX = 130;
 
     private JButton increase, decrease;
     private JLabel titleLabel, orderLabel;
@@ -34,10 +34,9 @@ public class KochSnowflakeViewer implements ActionListener
     {
         tools = new JPanel ();
         tools.setLayout (new BoxLayout(tools, BoxLayout.X_AXIS));
-        tools.setBackground (Color.yellow);
         tools.setOpaque (true);
 
-        titleLabel = new JLabel ("The Koch Snowflake");
+        titleLabel = new JLabel ("Fracking Tree");
         titleLabel.setForeground (Color.black);
 
         increase = new JButton (new ImageIcon ("increase.gif"));
@@ -66,7 +65,7 @@ public class KochSnowflakeViewer implements ActionListener
         panel.add (drawing);
 
         frame = new JFrame();
-        frame.setTitle("Knoch Snowflake");
+        frame.setTitle("Fracking Tree");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);
         frame.add(panel);
