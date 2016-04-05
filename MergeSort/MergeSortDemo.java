@@ -8,7 +8,7 @@ public class MergeSortDemo
 {  
    public static void main(String[] args)
    {  
-      int[] a = ArrayUtil.randomIntArray(20, 100);
+      String[] a = {"joe","mary","ann","bill","sam","john"};//ArrayUtil.randomStringArray(5 , 5);
       System.out.println(Arrays.toString(a));
 
       MergeSorter.sort(a);
