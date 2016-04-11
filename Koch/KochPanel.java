@@ -4,32 +4,32 @@ import javax.swing.JPanel;
 
 public class KochPanel extends JPanel
 {
-<<<<<<< HEAD
+
    private final int PANEL_WIDTH = 400;
    private final int PANEL_HEIGHT = 400;
 
    private int current; //current order
 
-=======
+
    private final int PANEL_WIDTH = 1900;
    private final int PANEL_HEIGHT = 900;
    private int current; 
    
->>>>>>> fd8d31838d6b3fac28a95f9b567785bd81240fbe
+
    public KochPanel (int currentOrder)
    {
       current = currentOrder;
       setBackground (Color.black);
       setPreferredSize (new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
    }
-<<<<<<< HEAD
+
 
    public void drawFractal (int order, int x1, int y1, int x5, int y5,
                             Graphics page)
-=======
+
    
    public void drawFractal (Graphics page, int x1, int y1, double t, int order)
->>>>>>> fd8d31838d6b3fac28a95f9b567785bd81240fbe
+
    {
        if(order==0){return;}
        int x2 = x1+(int)(Math.cos(Math.toRadians(t))*order*7);

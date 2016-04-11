@@ -3,19 +3,11 @@ dependency1.from=KochSnowflakeViewer
 dependency1.to=KochPanel
 dependency1.type=UsesDependency
 objectbench.height=100
-<<<<<<< HEAD
-objectbench.width=662
-package.editor.height=400
-package.editor.width=564
-package.editor.x=417
-package.editor.y=211
-=======
-objectbench.width=1355
+objectbench.width=1660
 package.editor.height=830
 package.editor.width=1562
 package.editor.x=-8
 package.editor.y=-8
->>>>>>> fd8d31838d6b3fac28a95f9b567785bd81240fbe
 package.numDependencies=1
 package.numTargets=2
 package.showExtends=true
@@ -40,13 +32,8 @@ target1.x=70
 target1.y=70
 target2.editor.height=878
 target2.editor.width=1280
-<<<<<<< HEAD
-target2.editor.x=392
-target2.editor.y=140
-=======
 target2.editor.x=255
 target2.editor.y=107
->>>>>>> fd8d31838d6b3fac28a95f9b567785bd81240fbe
 target2.height=50
 target2.name=KochPanel
 target2.naviview.expanded=true
