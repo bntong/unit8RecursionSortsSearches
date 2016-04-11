@@ -12,10 +12,10 @@ public class BabyNames
          
       RecordReader boys = new RecordReader(LIMIT);
       RecordReader girls = new RecordReader(LIMIT);
-      
+      int rank=0;
       while (boys.hasMore() || girls.hasMore())
       {
-         int rank = in.nextInt();
+         rank = in.nextInt();
          System.out.print(rank + " ");
          boys.process(in);
          girls.process(in);

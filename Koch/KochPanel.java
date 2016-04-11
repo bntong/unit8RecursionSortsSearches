@@ -4,71 +4,56 @@ import javax.swing.JPanel;
 
 public class KochPanel extends JPanel
 {
+<<<<<<< HEAD
    private final int PANEL_WIDTH = 400;
    private final int PANEL_HEIGHT = 400;
 
    private int current; //current order
 
+=======
+   private final int PANEL_WIDTH = 1900;
+   private final int PANEL_HEIGHT = 900;
+   private int current; 
+   
+>>>>>>> fd8d31838d6b3fac28a95f9b567785bd81240fbe
    public KochPanel (int currentOrder)
    {
       current = currentOrder;
       setBackground (Color.black);
       setPreferredSize (new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
    }
+<<<<<<< HEAD
 
    public void drawFractal (int order, int x1, int y1, int x5, int y5,
                             Graphics page)
+=======
+   
+   public void drawFractal (Graphics page, int x1, int y1, double t, int order)
+>>>>>>> fd8d31838d6b3fac28a95f9b567785bd81240fbe
    {
-      int deltaX, deltaY, x2, y2, x3, y3, x4, y4;
-
-      if (order == 1)
-         page.drawLine (x1, y1, x5, y5);
-      else
-      {
-         deltaX = x5 - x1;  // distance between end points
-         deltaY = y5 - y1;
-
-         x2 = x1 + deltaX / 3;  // one third
-         y2 = y1 + deltaY / 3;
-
-         x3 = (int) ((x1+x5)/2 + SQ * (y1-y5));  // tip of projection
-         y3 = (int) ((y1+y5)/2 + SQ * (x5-x1));
-
-         x4 = x1 + deltaX * 2/3;  // two thirds
-         y4 = y1 + deltaY * 2/3;
-
-         drawFractal (order-1, x1, y1, x2, y2, page);
-         drawFractal (order-1, x2, y2, x3, y3, page);
-         drawFractal (order-1, x3, y3, x4, y4, page);
-         drawFractal (order-1, x4, y4, x5, y5, page);
-      }
+       if(order==0){return;}
+       int x2 = x1+(int)(Math.cos(Math.toRadians(t))*order*7);
+       int y2 = y1+(int)(Math.sin(Math.toRadians(t))*order*7);
+       page.drawLine(x1,y1,x2,y2);
+       drawFractal(page,x2,y2,t-20,order-1);
+       drawFractal(page,x2,y2,t+20,order-1);
+       
+       // Random color of the branches
+       /*page.setColor(new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255)));*/
    }
 
-   //-----------------------------------------------------------------
-   //  Performs the initial calls to the drawFractal method.
-   //-----------------------------------------------------------------
    public void paintComponent (Graphics page)
    {
       super.paintComponent (page);
-
-      page.setColor (Color.green);
-
-      drawFractal (current, TOPX, TOPY, LEFTX, LEFTY, page);
-      drawFractal (current, LEFTX, LEFTY, RIGHTX, RIGHTY, page);
-      drawFractal (current, RIGHTX, RIGHTY, TOPX, TOPY, page);
+      page.translate(950,800);
+      page.setColor (Color.magenta);
+      drawFractal(page,0,100,-90,current);
    }
-
-   //-----------------------------------------------------------------
-   //  Sets the fractal order to the value specified.
-   //-----------------------------------------------------------------
    public void setOrder (int order)
    {
       current = order;
    }
 
-   //-----------------------------------------------------------------
-   //  Returns the current order.
-   //-----------------------------------------------------------------
    public int getOrder ()
    {
       return current;
